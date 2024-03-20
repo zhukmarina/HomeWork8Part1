@@ -7,9 +7,9 @@
 
 import UIKit
 
-class RedViewController: UIViewController {
+class RedViewController: UIViewController, PrinterDelegate {
     
-    var printer: Printer!
+    var printer: Printer<RedViewController>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +17,7 @@ class RedViewController: UIViewController {
         setup()
     }
     
-    func textToPrint() -> String {
+    func textToPrint() -> String? {
         return "🚗 - червоне таксі у дорозі"
     }
 }
@@ -42,7 +42,7 @@ private extension RedViewController {
     func setup() {
         
         printer = Printer()
-        printer.redViewController = self
+        printer.delegate = self
         
         printer.startPrinting()
     }

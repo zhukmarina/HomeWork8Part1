@@ -7,9 +7,9 @@
 
 import UIKit
 
-class YellowViewController: UIViewController {
+class YellowViewController: UIViewController,PrinterDelegate {
     
-    var printer: Printer!
+    var printer: Printer<YellowViewController>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +17,7 @@ class YellowViewController: UIViewController {
         setup()
     }
     
-    func textToPrint() -> String {
+    func textToPrint() -> String? {
         return "🚖 - жовте таксі у дорозі"
     }
 }
@@ -42,7 +42,7 @@ private extension YellowViewController {
     func setup() {
         
         printer = Printer()
-        printer.yellowViewController = self
+        printer.delegate = self
         
         printer.startPrinting()
     }

@@ -15,7 +15,7 @@ class GreenViewController: UIViewController {
     
     @IBAction func showYellowScreen(_ sender: UIButton) {
         
-        let yellowViewController = YellowViewController()
+       let yellowViewController = YellowViewController()
         navigationController?.pushViewController(yellowViewController, animated: true)
     }
     
